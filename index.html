@@ -12,10 +12,10 @@
             background: radial-gradient(circle at top right, #002d62, #00101a, #000000);
             color: #f8fafc;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            overflow-x: hidden; /* Iwas sa sideways scroll sa mobile */
+            overflow-x: hidden;
         }
         .font-title { font-family: 'Syncopate', sans-serif; }
-        section { scroll-margin-top: 100px; }
+        section { scroll-margin-top: 80px; }
 
         .glass-card {
             background: rgba(0, 15, 25, 0.7);
@@ -23,149 +23,156 @@
             border: 1px solid rgba(0, 212, 255, 0.15);
             border-radius: 24px;
             transition: all 0.4s ease;
-            padding: 25px;
+            padding: 20px; /* Reduced for mobile */
+        }
+        
+        @media (min-width: 768px) {
+            .glass-card { padding: 30px; }
         }
 
         .card-icon {
             background: rgba(0, 212, 255, 0.05);
             border: 1px solid rgba(0, 212, 255, 0.2);
-            width: 55px;
-            height: 55px;
-            border-radius: 16px;
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            filter: grayscale(100%) brightness(150%) sepia(100%) hue-rotate(160deg) saturate(500%) drop-shadow(0 0 8px rgba(0, 212, 255, 0.8));
-            font-size: 26px;
+            filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.4));
+            font-size: 22px;
         }
 
-        /* Mobile specific spacing */
-        @media (max-width: 768px) {
-            .font-hero { font-size: 3.5rem !important; line-height: 1 !important; }
+        /* Smooth glow effect for images */
+        .project-glow:hover {
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
         }
     </style>
 </head>
 <body class="min-h-screen">
 
-    <nav class="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-lg border-b border-white/5 px-4 md:px-8 py-4">
+    <nav class="fixed top-0 left-0 w-full z-50 bg-black/60 backdrop-blur-xl border-b border-white/5 px-4 py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="font-title text-lg md:text-2xl font-bold tracking-tighter text-white uppercase italic">
+            <div class="font-title text-base md:text-2xl font-bold tracking-tighter text-white uppercase italic">
                 ICY<span class="text-blue-400">.DESIGN</span>
             </div>
-            <div class="flex gap-4 md:gap-10 text-[10px] md:text-xs font-bold uppercase tracking-widest text-gray-400">
-                <a href="#services" class="hover:text-white transition">Services</a>
-                <a href="#projects" class="hover:text-white transition">Projects</a>
-                <a href="#contact" class="hover:text-white transition">Contact</a>
+            <div class="flex gap-4 md:gap-10 text-[10px] md:text-xs font-bold uppercase tracking-widest text-gray-300">
+                <a href="#services" class="hover:text-blue-400 transition">Services</a>
+                <a href="#projects" class="hover:text-blue-400 transition">Projects</a>
+                <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
             </div>
         </div>
     </nav>
 
-    <section class="max-w-7xl mx-auto px-6 pt-32 md:pt-52 pb-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section class="max-w-7xl mx-auto px-6 pt-28 md:pt-48 pb-16 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         <div class="text-center lg:text-left order-2 lg:order-1">
-            <h2 class="text-blue-400 font-title text-[10px] md:text-sm mb-4 tracking-[0.4em]">GRAPHIC DESIGNER</h2>
-            <h1 class="font-hero text-6xl md:text-8xl font-title font-bold leading-none mb-10 italic text-white uppercase tracking-tighter">
-                ICY <br> PORTFOLIO
+            <h2 class="text-blue-400 font-title text-[10px] md:text-sm mb-4 tracking-[0.4em] uppercase">Graphic Designer</h2>
+            <h1 class="font-title text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.1] mb-8 italic text-white uppercase tracking-tighter">
+                ICY <br class="hidden md:block"> PORTFOLIO
             </h1>
             <div class="flex justify-center lg:justify-start">
-                <a href="#projects" class="bg-gradient-to-r from-blue-600 to-cyan-400 px-10 py-4 rounded-full font-bold uppercase text-xs text-white tracking-widest hover:scale-105 transition shadow-xl shadow-blue-500/20">
+                <a href="#projects" class="bg-blue-600 hover:bg-blue-500 px-8 py-4 rounded-full font-bold uppercase text-[10px] md:text-xs text-white tracking-widest transition-all shadow-lg shadow-blue-500/20 active:scale-95">
                     Explore Works
                 </a>
             </div>
         </div>
 
         <div class="relative flex justify-center lg:justify-end order-1 lg:order-2">
-            <img src="icy.png" alt="Icy Avatar" 
-                 class="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-[400px] lg:h-[400px] rounded-full border-4 border-blue-400 shadow-2xl shadow-blue-400/30 grayscale hover:grayscale-0 transition duration-700 object-cover">
+            <div class="relative">
+                <div class="absolute inset-0 bg-blue-500/20 blur-[60px] rounded-full"></div>
+                <img src="icy.png" alt="Icy Avatar" 
+                     class="relative w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-[380px] lg:h-[380px] rounded-full border-2 border-blue-400/50 object-cover grayscale hover:grayscale-0 transition duration-700 shadow-2xl">
+            </div>
         </div>
     </section>
 
-    <section id="services" class="max-w-7xl mx-auto px-6 py-20 bg-black/10 rounded-[40px] border border-white/5 mx-4 md:mx-auto">
-        <div class="mb-12 text-center lg:text-left">
-            <h2 class="font-title text-3xl md:text-4xl mb-3 tracking-tighter text-white uppercase italic">SERVICES</h2>
-            <div class="h-1 w-20 bg-blue-500 mx-auto lg:mx-0"></div>
+    <section id="services" class="max-w-7xl mx-auto px-6 py-16">
+        <div class="mb-10 text-center lg:text-left">
+            <h2 class="font-title text-2xl md:text-4xl mb-3 tracking-tighter text-white uppercase italic">Services</h2>
+            <div class="h-1 w-16 bg-blue-500 mx-auto lg:mx-0"></div>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             <div class="glass-card">
-                <div class="card-icon mb-6">🎨</div>
-                <h3 class="font-bold text-lg mb-3 uppercase tracking-wider text-blue-100 italic font-title">Branding & Identity</h3>
+                <div class="card-icon mb-5">🎨</div>
+                <h3 class="font-bold text-lg mb-2 uppercase tracking-wider text-blue-100 italic font-title">Branding</h3>
                 <p class="text-gray-400 text-sm leading-relaxed">Developing bold identity systems and cohesive visual languages designed for the digital age.</p>
             </div>
             <div class="glass-card">
-                <div class="card-icon mb-6">📱</div>
-                <h3 class="font-bold text-lg mb-3 uppercase tracking-wider text-blue-100 italic font-title">Digital Design</h3>
+                <div class="card-icon mb-5">📱</div>
+                <h3 class="font-bold text-lg mb-2 uppercase tracking-wider text-blue-100 italic font-title">Digital</h3>
                 <p class="text-gray-400 text-sm leading-relaxed">Creating high-contrast social assets and digital content focused on maximum engagement.</p>
             </div>
             <div class="glass-card md:col-span-2 lg:col-span-1">
-                <div class="card-icon mb-6">🎬</div>
-                <h3 class="font-bold text-lg mb-3 uppercase tracking-wider text-blue-100 italic font-title">Photo & Motion</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">I enhance visuals through professional photo editing and create engaging motion graphics that bring your content to life.</p>
+                <div class="card-icon mb-5">🎬</div>
+                <h3 class="font-bold text-lg mb-2 uppercase tracking-wider text-blue-100 italic font-title">Motion</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">I enhance visuals through professional photo editing and create engaging motion graphics.</p>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="max-w-7xl mx-auto px-6 py-24">
-        <h2 class="font-title text-3xl md:text-4xl mb-12 italic uppercase text-white text-center lg:text-left">FEATURED PROJECTS</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-            <a href="https://www.behance.net/gallery/243416507/247-Street-Logo-Branding" target="_blank" class="glass-card p-0 overflow-hidden relative aspect-square block group">
+    <section id="projects" class="max-w-7xl mx-auto px-6 py-16">
+        <h2 class="font-title text-2xl md:text-4xl mb-10 italic uppercase text-white text-center lg:text-left">Featured Projects</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <a href="https://www.behance.net/gallery/243416507/247-Street-Logo-Branding" target="_blank" class="glass-card p-0 overflow-hidden relative aspect-square block group project-glow">
                 <img src="thumb1.png" alt="Project 1" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-center items-center p-6 text-center text-white">
-                    <h3 class="font-title text-base uppercase mb-2">247 Street</h3>
-                    <span class="text-blue-400 text-[10px] font-bold uppercase tracking-widest">View Gallery →</span>
+                <div class="absolute inset-0 bg-black/90 opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-center items-center p-6 text-center text-white">
+                    <h3 class="font-title text-sm uppercase mb-2">247 Street</h3>
+                    <span class="text-blue-400 text-[9px] font-bold uppercase tracking-widest">View Gallery →</span>
                 </div>
             </a>
-            <a href="https://www.behance.net/gallery/246085801/Wonderful-Moments-Music-Festival" target="_blank" class="glass-card p-0 overflow-hidden relative aspect-square block group">
+            <a href="https://www.behance.net/gallery/246085801/Wonderful-Moments-Music-Festival" target="_blank" class="glass-card p-0 overflow-hidden relative aspect-square block group project-glow">
                 <img src="thumb2.png" alt="Project 2" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-center items-center p-6 text-center text-white">
-                    <h3 class="font-title text-base uppercase mb-2 leading-tight">Wonderful Moments <br> Music Festival</h3>
-                    <span class="text-blue-400 text-[10px] font-bold uppercase tracking-widest">View Gallery →</span>
+                <div class="absolute inset-0 bg-black/90 opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-center items-center p-6 text-center text-white">
+                    <h3 class="font-title text-sm uppercase mb-2">Music Festival</h3>
+                    <span class="text-blue-400 text-[9px] font-bold uppercase tracking-widest">View Gallery →</span>
                 </div>
             </a>
-            <a href="https://www.behance.net/gallery/240835149/Ynot-EWC-and-MPL-S16-Social-Media-Graphics" target="_blank" class="glass-card p-0 overflow-hidden relative aspect-square block group">
+            <a href="https://www.behance.net/gallery/240835149/Ynot-EWC-and-MPL-S16-Social-Media-Graphics" target="_blank" class="glass-card p-0 overflow-hidden relative aspect-square block group project-glow">
                 <img src="thumb3.png" alt="Project 3" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-center items-center p-6 text-center text-white">
-                    <h3 class="font-title text-base uppercase mb-2">Ynot Social</h3>
-                    <span class="text-blue-400 text-[10px] font-bold uppercase tracking-widest">View Gallery →</span>
+                <div class="absolute inset-0 bg-black/90 opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-center items-center p-6 text-center text-white">
+                    <h3 class="font-title text-sm uppercase mb-2">Ynot Social</h3>
+                    <span class="text-blue-400 text-[9px] font-bold uppercase tracking-widest">View Gallery →</span>
                 </div>
             </a>
         </div>
     </section>
 
-    <section id="contact" class="max-w-7xl mx-auto px-6 py-20 border-t border-white/5">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div class="text-center lg:text-left space-y-10">
-                <h2 class="font-title text-4xl md:text-5xl uppercase italic text-white">Let's Work</h2>
-                <div class="flex flex-col items-center lg:items-start gap-8">
-                    <div class="flex items-center gap-5">
-                        <div class="card-icon text-xl">📧</div>
+    <section id="contact" class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="text-center lg:text-left space-y-8">
+                <h2 class="font-title text-3xl md:text-5xl uppercase italic text-white">Let's Work</h2>
+                <div class="flex flex-col items-center lg:items-start gap-6">
+                    <div class="flex items-center gap-4">
+                        <div class="card-icon">📧</div>
                         <div class="text-left">
-                            <p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Email Me</p>
-                            <p class="text-sm md:text-base text-white font-semibold italic">jardinprincessicy@gmail.com</p>
+                            <p class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">Email Me</p>
+                            <p class="text-xs md:text-base text-white font-semibold">jardinprincessicy@gmail.com</p>
                         </div>
                     </div>
-                    <div class="flex items-center gap-5">
-                        <div class="card-icon text-xl">📞</div>
+                    <div class="flex items-center gap-4">
+                        <div class="card-icon">📞</div>
                         <div class="text-left">
-                            <p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Call / Text</p>
-                            <p class="text-sm md:text-base text-white font-semibold italic">+63 912 670 8448</p>
+                            <p class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">Call / Text</p>
+                            <p class="text-xs md:text-base text-white font-semibold">+63 912 670 8448</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="flex flex-col items-center lg:items-end">
-                <div class="glass-card p-8 bg-white/5 border-blue-500/30 text-center w-full max-w-[320px]">
-                    <p class="text-[10px] font-title mb-6 text-blue-400 tracking-[0.4em] uppercase">Behance QR Code</p>
-                    <div class="w-32 h-32 md:w-44 md:h-44 bg-white p-3 rounded-2xl mx-auto mb-6">
+            <div class="flex justify-center lg:justify-end">
+                <div class="glass-card p-6 bg-white/5 border-blue-500/30 text-center w-full max-w-[280px]">
+                    <p class="text-[9px] font-title mb-4 text-blue-400 tracking-widest uppercase">Behance QR</p>
+                    <div class="w-32 h-32 md:w-40 md:h-40 bg-white p-2 rounded-xl mx-auto mb-4">
                         <img src="qrcode.png" alt="Scan QR" class="w-full h-full object-contain">
                     </div>
-                    <p class="text-[9px] text-gray-500 uppercase tracking-widest italic font-bold">Scan to view full portfolio</p>
+                    <p class="text-[8px] text-gray-500 uppercase tracking-widest font-bold">Scan to view full portfolio</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="text-center py-10 text-gray-600 text-[10px] uppercase tracking-[0.5em]">
+    <footer class="text-center py-10 text-gray-600 text-[9px] uppercase tracking-[0.4em]">
         © 2024 ICY DESIGN • ALL RIGHTS RESERVED
     </footer>
 
